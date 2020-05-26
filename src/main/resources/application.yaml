@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: root
+    driverClassName: com.mysql.cj.jdbc.Driver
+    initial-size: 5
+    min-idle: 5
+    max-active: 20
+    max-wait: 50000
+    timeBetweenEvictionRunsMillis: 60000
+    min-evictable-idle-time-millis: 300000
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    validation-query: SELECT 1
+    validation-query-timeout: 2000
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+logging:
+  level:
+    com:
+      example:
+        demo: debug
